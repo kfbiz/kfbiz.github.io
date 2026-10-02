@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Request sent — KF Biz</title>
 <link rel="stylesheet" href="assets/contact.css">
+ <link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1f2937">
 </head>
 <body>
 <header class="site-header"><div class="container nav"><a class="brand" href="index.html" aria-label="KF Biz"><img src="assets/images/kf-biz-logo.png" alt="KF Biz"></a><a class="button button-small" href="index.html">Back to KF Biz</a></div></header>
@@ -12,5 +14,14 @@
 <section class="success-wrap"><div class="success-card"><p class="eyebrow">Thank you</p><h1>Your request has been sent.</h1><p>We have received your contact request. KF Biz will get back to you by email.</p><a class="button" href="index.html">Return to website →</a></div></section>
 </main>
 <footer><div class="container footer"><div><a class="brand" href="index.html" aria-label="KF Biz"><img src="assets/images/kf-biz-logo.png" alt="KF Biz"></a><p>Business consulting &amp; accounting for entrepreneurs in Finland.</p></div></div></footer>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js")
+      .then((registration) => console.log("KF Biz service worker registered:", registration.scope))
+      .catch((error) => console.error("KF Biz service worker registration failed:", error));
+  });
+}
+</script>
 </body>
 </html>
