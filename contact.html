@@ -6,6 +6,8 @@
 <title>Contact KF Biz — Business support in Finland</title>
 <meta name="description" content="Contact KF Biz for business consulting, bookkeeping, business planning and practical support in Finland.">
 <link rel="stylesheet" href="assets/contact.css">
+ <link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1f2937">
 </head>
 <body>
 <header class="site-header">
@@ -116,5 +118,14 @@
     </div>
   </div>
 </footer>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js")
+      .then((registration) => console.log("KF Biz service worker registered:", registration.scope))
+      .catch((error) => console.error("KF Biz service worker registration failed:", error));
+  });
+}
+</script>
 </body>
 </html>
