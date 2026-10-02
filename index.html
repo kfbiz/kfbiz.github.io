@@ -21,4 +21,13 @@
 <section class="cta-section" id="contact"><div class="container cta"><div><p class="eyebrow">Start with a conversation</p><h2>Not sure what you need?</h2><p>Book a free first consultation and tell us what you are trying to solve. We will help you identify the next step.</p></div><a class="button" href="contact.html">Book free consultation</a></div></section>
 </main>
 <footer><div class="container footer"><div><a class="brand" href="index.html" aria-label="KF Biz"><img src="assets/images/kf-biz-logo.png" alt="KF Biz"></a><p>Practical business support in Finland.</p></div><div><a href="mailto:kfbizcontact@gmail.com">kfbizcontact@gmail.com</a><a href="tel:+358405787007">040 578 7007</a><a href="contact.html">Contact</a></div><div><span>Turku, Finland</span><span>© 2026 KF Biz</span></div></div></footer>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js")
+      .then((registration) => console.log("KF Biz service worker registered:", registration.scope))
+      .catch((error) => console.error("KF Biz service worker registration failed:", error));
+  });
+}
+</script>
 </body></html>
