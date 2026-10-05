@@ -1,4 +1,4 @@
-const CACHE_NAME = "kf-biz-pwa-v3";
+const CACHE_NAME = "kf-biz-pwa-v4";
 
 const APP_SHELL = [
   "/",
@@ -6,6 +6,9 @@ const APP_SHELL = [
   "/contact.html",
   "/about.html",
   "/privacy.html",
+  "/services/business-consulting.html",
+  "/services/bookkeeping.html",
+  "/services/business-advisory.html",
   "/thanks.html",
   "/assets/styles.css",
   "/assets/contact.css",
