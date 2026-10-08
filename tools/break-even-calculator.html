@@ -1,6 +1,161 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Break-even Calculator — KF Biz</title><link rel="stylesheet" href="../assets/styles.css"> <link rel="manifest" href="/manifest.webmanifest">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Break-even Calculator — KF Biz</title>
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#1f2937">
-</head><body><header class="site-header"><div class="container nav"><a class="brand" href="../index.html" aria-label="KF Biz"><img src="../assets/images/kf-biz-logo.png" alt="KF Biz"></a><a class="button button-small" href="../index.html">Back to KF Biz</a></div></header><main class="section"><div class="container" style="max-width:720px"><p class="eyebrow">Free tool</p><h1 style="font-size:52px;letter-spacing:-2px">Break-even Calculator</h1><div class="card" style="margin-top:30px"><label>Monthly fixed costs (€)<input id="fixed" type="number" min="0" step="0.01" placeholder="2000"></label><label style="display:block;margin-top:18px">Selling price per unit (€)<input id="price" type="number" min="0" step="0.01" placeholder="50"></label><label style="display:block;margin-top:18px">Variable cost per unit (€)<input id="variable" type="number" min="0" step="0.01" placeholder="20"></label><button class="button" style="margin-top:20px" onclick="calc()">Calculate</button><div id="result" style="margin-top:25px;font-size:20px"></div></div></div></main><script>function calc(){const f=+fixed.value,p=+price.value,v=+variable.value,m=p-v;if(m<=0){result.textContent='Selling price must be greater than variable cost.';return}const units=f/m,resultSales=units*p;result.innerHTML='<strong>Break-even:</strong> '+units.toFixed(1)+' units/month<br><strong>Break-even sales:</strong> €'+resultSales.toFixed(2)+'/month'}</script><script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html" aria-label="KF Biz">
+      <img src="../assets/images/kf-biz-logo.png" alt="KF Biz">
+    </a>
+    <a class="button button-small" href="../index.html">Back to KF Biz</a>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container" style="max-width:720px">
+    <p class="eyebrow">Free tool</p>
+    <h1 style="font-size:52px;letter-spacing:-2px">Break-even Calculator</h1>
+    <p style="font-size:18px;line-height:1.7;margin-top:16px">
+      Estimate how many units you need to sell each month to cover your fixed and variable costs.
+      The break-even point is the point where your sales revenue covers your costs, so you are not making a profit or a loss.
+    </p>
+
+    <div class="card" style="margin-top:30px">
+      <h2 style="margin-top:0">How to use the calculator</h2>
+      <ol style="line-height:1.8;padding-left:22px">
+        <li>Enter your total monthly fixed costs.</li>
+        <li>Enter the selling price for one unit, service, or billable unit.</li>
+        <li>Enter the variable cost for one unit.</li>
+        <li>Click <strong>Calculate</strong> to see your monthly break-even volume and sales.</li>
+      </ol>
+
+      <label style="display:block;margin-top:22px">
+        Monthly fixed costs (€)
+        <input id="fixed" type="number" min="0" step="0.01" placeholder="2000" inputmode="decimal">
+      </label>
+
+      <label style="display:block;margin-top:18px">
+        Selling price per unit (€)
+        <input id="price" type="number" min="0" step="0.01" placeholder="50" inputmode="decimal">
+      </label>
+
+      <label style="display:block;margin-top:18px">
+        Variable cost per unit (€)
+        <input id="variable" type="number" min="0" step="0.01" placeholder="20" inputmode="decimal">
+      </label>
+
+      <button class="button" style="margin-top:20px" id="calculateButton" type="button">Calculate</button>
+      <div id="result" style="margin-top:25px;font-size:20px" aria-live="polite"></div>
+    </div>
+
+    <section style="margin-top:40px">
+      <h2>What is the break-even point?</h2>
+      <p style="line-height:1.7">
+        The break-even point tells you how much you need to sell before the business starts generating a profit.
+        At break-even, total sales revenue equals total costs.
+      </p>
+      <p style="line-height:1.7">
+        This is useful when setting prices, planning sales targets, preparing a business plan, or checking whether a business idea can realistically cover its costs.
+      </p>
+
+      <h2 style="margin-top:32px">Fixed costs vs. variable costs</h2>
+      <p style="line-height:1.7">
+        <strong>Fixed costs</strong> are costs that generally do not change directly with the number of units sold during the period.
+        Examples include rent, fixed salaries, insurance and some subscriptions.
+      </p>
+      <p style="line-height:1.7">
+        <strong>Variable costs</strong> change as sales or production volume changes.
+        Examples include materials, product purchases, packaging, transaction fees and other costs directly related to each sale.
+      </p>
+
+      <h2 style="margin-top:32px">How the calculation works</h2>
+      <p style="line-height:1.7">
+        The calculator first finds the amount left from each sale after the variable cost is covered.
+        This is the contribution margin per unit.
+      </p>
+      <p style="line-height:1.7">
+        <strong>Break-even units = Fixed costs ÷ (Selling price − Variable cost)</strong>
+      </p>
+      <p style="line-height:1.7">
+        For example, if monthly fixed costs are €2,000, the selling price is €50 and the variable cost is €20,
+        each sale contributes €30 toward fixed costs. You would need about 66.7 units per month to break even,
+        which corresponds to about €3,333.33 in monthly sales.
+      </p>
+
+      <h2 style="margin-top:32px">How to use the result</h2>
+      <ul style="line-height:1.8;padding-left:22px">
+        <li>Compare the break-even sales volume with your realistic monthly sales forecast.</li>
+        <li>If the required sales volume is too high, review your price, variable costs and fixed costs.</li>
+        <li>Use the result as one part of your business plan and profitability planning.</li>
+        <li>Remember that reaching break-even means covering costs; it does not mean you are earning a profit yet.</li>
+      </ul>
+
+      <h2 style="margin-top:32px">Important limitations</h2>
+      <p style="line-height:1.7">
+        This is a simple planning calculator. It does not automatically account for VAT, income taxes,
+        YEL, financing costs, depreciation, different product prices, discounts, seasonal changes,
+        or multiple products and services with different margins.
+      </p>
+      <p style="line-height:1.7">
+        For a more complete profitability calculation, include your actual fixed costs, variable costs,
+        sales forecast and target income. Suomi.fi recommends using profitability calculations to assess
+        how much a business needs to sell at a particular price to make its operations profitable.
+      </p>
+
+      <p style="font-size:14px;line-height:1.6;margin-top:28px">
+        General information only. This calculator is intended for business planning and does not constitute legal,
+        tax or accounting advice.
+      </p>
+
+      <p style="margin-top:20px">
+        <a href="https://www.suomi.fi/company/financing-a-business-and-business-subsidies/financial-planning/guide/financing-a-startup-business/financial-and-profitability-calculations" target="_blank" rel="noopener noreferrer">
+          Learn more about financial and profitability calculations on Suomi.fi →
+        </a>
+      </p>
+    </section>
+  </div>
+</main>
+
+<script>
+function calculateBreakEven() {
+  const fixed = Number(document.getElementById("fixed").value);
+  const price = Number(document.getElementById("price").value);
+  const variable = Number(document.getElementById("variable").value);
+  const result = document.getElementById("result");
+
+  if (!Number.isFinite(fixed) || !Number.isFinite(price) || !Number.isFinite(variable) ||
+      fixed < 0 || price <= 0 || variable < 0) {
+    result.textContent = "Please enter valid positive values. Fixed and variable costs cannot be negative.";
+    return;
+  }
+
+  const contributionMargin = price - variable;
+
+  if (contributionMargin <= 0) {
+    result.textContent = "Selling price must be greater than variable cost. Otherwise, each sale does not contribute enough to cover fixed costs.";
+    return;
+  }
+
+  const units = fixed / contributionMargin;
+  const breakEvenSales = units * price;
+
+  result.innerHTML =
+    "<strong>Break-even:</strong> " + units.toFixed(1) + " units/month<br>" +
+    "<strong>Break-even sales:</strong> €" + breakEvenSales.toFixed(2) + "/month<br>" +
+    "<strong>Contribution margin:</strong> €" + contributionMargin.toFixed(2) + " per unit";
+}
+
+document.getElementById("calculateButton").addEventListener("click", calculateBreakEven);
+</script>
+
+<script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/sw.js")
@@ -9,4 +164,5 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-</body></html>
+</body>
+</html>
