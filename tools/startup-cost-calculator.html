@@ -1,6 +1,142 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Startup Cost Calculator — KF Biz</title><link rel="stylesheet" href="../assets/styles.css"> <link rel="manifest" href="/manifest.webmanifest">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Startup Cost Calculator — KF Biz</title>
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#1f2937">
-</head><body><header class="site-header"><div class="container nav"><a class="brand" href="../index.html" aria-label="KF Biz"><img src="../assets/images/kf-biz-logo.png" alt="KF Biz"></a><a class="button button-small" href="../index.html">Back to KF Biz</a></div></header><main class="section"><div class="container" style="max-width:720px"><p class="eyebrow">Free tool</p><h1 style="font-size:52px;letter-spacing:-2px">Startup Cost Calculator</h1><div class="card" style="margin-top:30px"><div id="rows"></div><button class="button button-outline" style="margin-top:15px" onclick="addRow()">+ Add cost</button><div id="result" style="margin-top:25px;font-size:22px;font-weight:800">Estimated startup cost: €0.00</div></div></div></main><script>let i=0;function addRow(){i++;const r=document.createElement('div');r.style='display:grid;grid-template-columns:1fr 150px;gap:10px;margin:10px 0';r.innerHTML='<input placeholder="Cost item" aria-label="Cost item"><input type="number" min="0" step="0.01" placeholder="€0" oninput="total()" aria-label="Amount">';document.getElementById('rows').appendChild(r)}function total(){let s=0;document.querySelectorAll('#rows input[type=number]').forEach(x=>s+=Number(x.value)||0);document.getElementById('result').textContent='Estimated startup cost: €'+s.toFixed(2)}addRow();addRow();addRow();</script><script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html" aria-label="KF Biz"><img src="../assets/images/kf-biz-logo.png" alt="KF Biz"></a>
+    <a class="button button-small" href="../index.html">Back to KF Biz</a>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container" style="max-width:820px">
+    <p class="eyebrow">Free tool</p>
+    <h1 style="font-size:52px;letter-spacing:-2px">Startup Cost Calculator</h1>
+    <p style="color:var(--muted);font-size:17px;max-width:680px">
+      Estimate how much money you may need to launch your business in Finland. Use it as a first planning tool, not as a fixed quotation of what your business will cost.
+    </p>
+
+    <div class="card" style="margin-top:30px">
+      <h2 style="margin-top:0">How to use the calculator</h2>
+      <div style="color:var(--muted);font-size:14px;line-height:1.65">
+        <p><strong>1. List the costs you expect before or around launch.</strong> Add each item separately so you can see where your money is going.</p>
+        <p><strong>2. Enter an estimated amount.</strong> Use realistic quotes where possible. If you are unsure, make a reasonable estimate and review it later.</p>
+        <p><strong>3. Include both one-time costs and the cash you need to operate.</strong> A business can require working capital even after the initial setup is complete.</p>
+        <p><strong>4. Use the total when planning financing.</strong> Compare the estimate with your own savings, possible financing and the amount of working capital you want to keep available.</p>
+      </div>
+
+      <div id="rows"></div>
+      <button type="button" class="button button-outline" style="margin-top:15px" onclick="addRow()">+ Add cost</button>
+      <div id="result" style="margin-top:25px;font-size:22px;font-weight:800">Estimated startup cost: €0.00</div>
+    </div>
+
+    <section style="margin-top:50px">
+      <p class="eyebrow">Startup cost basics</p>
+      <h2>What counts as a startup cost?</h2>
+      <p style="color:var(--muted);line-height:1.7">
+        Startup costs are the money you need to get a business ready to operate. They can include one-time investments, registration and professional fees, equipment, premises, software, initial stock, marketing and other launch expenses.
+      </p>
+
+      <h3>Think in two groups</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <div style="padding:18px;background:var(--cream);border-radius:10px">
+          <strong>1. Start-up investments</strong>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6">
+            Things needed to get the business ready: equipment, machinery, furniture, software, tools, premises, alterations and installations.
+          </p>
+        </div>
+        <div style="padding:18px;background:var(--cream);border-radius:10px">
+          <strong>2. Working capital</strong>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6">
+            Money needed to keep the business running while sales are still developing: rent, wages, your own income needs, insurance, accounting, marketing, utilities and other ongoing expenses.
+          </p>
+        </div>
+      </div>
+
+      <h3>Common cost categories</h3>
+      <ul style="color:var(--muted);line-height:1.7">
+        <li>Company or Trade Register registration fees</li>
+        <li>Equipment, tools and furniture</li>
+        <li>Premises, deposit and initial rent</li>
+        <li>Software, website and digital services</li>
+        <li>Initial inventory or materials</li>
+        <li>Insurance and accounting</li>
+        <li>Marketing, advertising and sales materials</li>
+        <li>Professional services and permits, where applicable</li>
+        <li>Travel and other business-related launch expenses</li>
+        <li>Working capital for the first months of operation</li>
+      </ul>
+
+      <h3>How much should I budget?</h3>
+      <p style="color:var(--muted);line-height:1.7">
+        There is no single startup-cost amount that applies to every business. A small one-person service business may be able to start with relatively little, while a restaurant, shop or production business may require substantial equipment, premises and working capital.
+      </p>
+      <p style="color:var(--muted);line-height:1.7">
+        Suomi.fi notes that businesses should consider working capital as well as initial investments and says companies should typically have working capital covering around 2–3 months of expenses. Your actual need depends on your business model, payment terms, seasonality and expected sales.
+      </p>
+
+      <h3>Don't forget costs before your first sale</h3>
+      <p style="color:var(--muted);line-height:1.7">
+        Many entrepreneurs focus only on registration and equipment. In reality, money may be needed before the first customer pays: website and marketing costs, insurance, accounting, rent or deposits, software, travel, stock and other preparation costs can all affect your cash requirement.
+      </p>
+
+      <h3>Startup cost vs. financing need</h3>
+      <p style="color:var(--muted);line-height:1.7">
+        Your startup cost estimate is an important input for a business plan and cash-flow calculation. The amount you need to finance can be higher than your one-time setup costs because the business may need cash to cover several months of operating expenses before revenue becomes stable.
+      </p>
+    </section>
+
+    <div style="margin-top:35px;padding:18px 20px;background:var(--cream);border-radius:10px">
+      <strong>Important:</strong>
+      <span style="color:var(--muted);font-size:13px;line-height:1.6">
+        This calculator gives a simple estimate. It does not include automatic assumptions for VAT, taxes, YEL, financing costs, depreciation, grants or industry-specific permits. Add the costs relevant to your own business and check official requirements before making financial decisions. Information checked October 2026.
+      </span>
+    </div>
+
+    <p style="font-size:13px;color:var(--muted);margin-top:22px;line-height:1.6">
+      Official guidance:
+      <a href="https://www.suomi.fi/company/financing-a-business-and-business-subsidies/financial-planning/guide/financing-a-startup-business/financing-to-a-company-during-the-start-up-phase" target="_blank" rel="noopener">Suomi.fi — Financing to a company during the start-up phase</a>.
+    </p>
+  </div>
+</main>
+
+<script>
+let i = 0;
+
+function addRow() {
+  i++;
+  const row = document.createElement("div");
+  row.style = "display:grid;grid-template-columns:1fr 150px;gap:10px;margin:10px 0";
+  row.innerHTML =
+    '<input placeholder="Cost item" aria-label="Cost item">' +
+    '<input type="number" min="0" step="0.01" placeholder="€0" inputmode="decimal" aria-label="Amount" oninput="total()">';
+  document.getElementById("rows").appendChild(row);
+}
+
+function total() {
+  let sum = 0;
+  document.querySelectorAll("#rows input[type=number]").forEach((input) => {
+    const value = Number(input.value);
+    if (Number.isFinite(value) && value > 0) sum += value;
+  });
+  document.getElementById("result").textContent =
+    "Estimated startup cost: €" + sum.toFixed(2);
+}
+
+addRow();
+addRow();
+addRow();
+</script>
+
+<script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/sw.js")
@@ -9,4 +145,5 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-</body></html>
+</body>
+</html>
