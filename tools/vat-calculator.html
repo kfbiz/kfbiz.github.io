@@ -1,6 +1,136 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VAT Calculator — KF Biz</title><link rel="stylesheet" href="../assets/styles.css"> <link rel="manifest" href="/manifest.webmanifest">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VAT Calculator — KF Biz</title>
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#1f2937">
-</head><body><header class="site-header"><div class="container nav"><a class="brand" href="../index.html" aria-label="KF Biz"><img src="../assets/images/kf-biz-logo.png" alt="KF Biz"></a><a class="button button-small" href="../index.html">Back to KF Biz</a></div></header><main class="section"><div class="container" style="max-width:720px"><p class="eyebrow">Free tool</p><h1 style="font-size:52px;letter-spacing:-2px">VAT Calculator</h1><p style="color:var(--muted)">A simple calculator for adding or removing VAT. Enter an amount and choose the calculation.</p><div class="card" style="margin-top:30px"><label>Amount (€)<input id="amount" type="number" min="0" step="0.01" placeholder="100"></label><label style="display:block;margin-top:18px">VAT rate (%)<input id="rate" type="number" min="0" step="0.1" value="25.5"></label><div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button class="button" onclick="calc('add')">Add VAT</button><button class="button button-outline" onclick="calc('remove')">Remove VAT</button></div><div id="result" style="margin-top:25px;font-size:18px"></div></div><p style="font-size:13px;color:var(--muted);margin-top:20px">For illustration only. Check the applicable Finnish VAT rules for your situation.</p></div></main><script>function calc(mode){const a=Number(document.getElementById('amount').value),r=Number(document.getElementById('rate').value)/100;if(!isFinite(a)||!isFinite(r)){return}let net,gross,vat;if(mode==='add'){net=a;vat=a*r;gross=a+vat}else{gross=a;net=a/(1+r);vat=gross-net}document.getElementById('result').innerHTML='<strong>Net:</strong> €'+net.toFixed(2)+' &nbsp; <strong>VAT:</strong> €'+vat.toFixed(2)+' &nbsp; <strong>Total:</strong> €'+gross.toFixed(2)}</script><script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html" aria-label="KF Biz"><img src="../assets/images/kf-biz-logo.png" alt="KF Biz"></a>
+    <a class="button button-small" href="../index.html">Back to KF Biz</a>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container" style="max-width:820px">
+    <p class="eyebrow">Free tool</p>
+    <h1 style="font-size:52px;letter-spacing:-2px">Finland VAT Calculator</h1>
+    <p style="color:var(--muted);font-size:17px;max-width:680px">
+      Calculate the VAT amount and total price when you know the VAT rate. You can also work backwards from a VAT-inclusive price to find the net price and VAT.
+    </p>
+
+    <div class="card" style="margin-top:30px">
+      <h2 style="margin-top:0">How to use the calculator</h2>
+      <div style="color:var(--muted);font-size:14px;line-height:1.65">
+        <p><strong>Add VAT:</strong> enter the price <em>before VAT</em>. The calculator adds VAT and shows the VAT amount and total customer price.</p>
+        <p><strong>Remove VAT:</strong> enter the price <em>including VAT</em>. The calculator works backwards and shows the VAT-free price and VAT included in the total.</p>
+        <p><strong>VAT rate:</strong> choose the rate that actually applies to the goods or service. The calculator does not decide which VAT rate applies.</p>
+      </div>
+
+      <label style="display:block;margin-top:22px">Amount (€)
+        <input id="amount" type="number" min="0" step="0.01" placeholder="100" inputmode="decimal">
+      </label>
+
+      <label style="display:block;margin-top:18px">VAT rate (%)
+        <input id="rate" type="number" min="0" step="0.1" value="25.5" inputmode="decimal">
+      </label>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <button type="button" class="button button-outline rate-button" onclick="setRate(25.5)">25.5% General</button>
+        <button type="button" class="button button-outline rate-button" onclick="setRate(13.5)">13.5% Reduced</button>
+        <button type="button" class="button button-outline rate-button" onclick="setRate(10)">10% Reduced</button>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+        <button type="button" class="button" onclick="calc('add')">Add VAT</button>
+        <button type="button" class="button button-outline" onclick="calc('remove')">Remove VAT</button>
+      </div>
+
+      <div id="result" style="margin-top:25px;font-size:18px"></div>
+    </div>
+
+    <section style="margin-top:50px">
+      <p class="eyebrow">VAT basics in Finland</p>
+      <h2>What is VAT?</h2>
+      <p style="color:var(--muted);line-height:1.7">
+        Value-added tax (VAT, or <em>arvonlisävero</em>) is a consumption tax charged on most goods and services. A VAT-registered business generally adds VAT to taxable sales, collects it from customers, reports it to the Finnish Tax Administration, and may deduct eligible VAT included in business purchases.
+      </p>
+
+      <h3>Current main VAT rates</h3>
+      <ul style="color:var(--muted);line-height:1.7">
+        <li><strong>25.5%</strong> — the general rate, used for most goods and services.</li>
+        <li><strong>13.5%</strong> — a reduced rate covering, among other things, food, restaurant services, accommodation, books and certain passenger transport and cultural/sports services.</li>
+        <li><strong>10%</strong> — currently used mainly for newspapers and magazines.</li>
+      </ul>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6">
+        The applicable rate depends on what is being sold and the VAT rules for that transaction. Some sales are zero-rated or exempt. Check the current Finnish rules before invoicing.
+      </p>
+
+      <h3>Do I need to register for VAT?</h3>
+      <p style="color:var(--muted);line-height:1.7">
+        In Finland, the small-business VAT threshold is €20,000 of turnover in a calendar year. If your VAT-liable turnover exceeds €20,000, VAT registration and VAT liability generally start from the date the threshold is exceeded. A business can also register voluntarily when the conditions are met.
+      </p>
+
+      <h3>Example</h3>
+      <p style="color:var(--muted);line-height:1.7">
+        If your service price is €100 before VAT and the applicable rate is 25.5%, VAT is €25.50 and the customer pays €125.50 in total. If the customer price is €125.50 including 25.5% VAT, the VAT-free price is €100.00 and the VAT included is €25.50.
+      </p>
+    </section>
+
+    <div style="margin-top:35px;padding:18px 20px;background:var(--cream);border-radius:10px">
+      <strong>Important:</strong>
+      <span style="color:var(--muted);font-size:13px;line-height:1.6">
+        This calculator is for general estimation. It does not determine whether your business or a particular sale is subject to VAT, which VAT rate applies, or whether a purchase is deductible. VAT rules can depend on the product, service, customer, location and transaction. Information checked October 2026.
+      </span>
+    </div>
+
+    <p style="font-size:13px;color:var(--muted);margin-top:22px">
+      Official source:
+      <a href="https://www.vero.fi/en/businesses-and-corporations/taxes-and-charges/vat/rates-of-vat/" target="_blank" rel="noopener">Finnish Tax Administration — VAT rates</a>.
+    </p>
+  </div>
+</main>
+
+<script>
+function setRate(rate) {
+  document.getElementById("rate").value = rate;
+}
+
+function calc(mode) {
+  const a = Number(document.getElementById("amount").value);
+  const r = Number(document.getElementById("rate").value) / 100;
+  const result = document.getElementById("result");
+
+  if (!Number.isFinite(a) || a < 0 || !Number.isFinite(r) || r < 0) {
+    result.innerHTML = "<span style='color:#b42318'>Please enter a valid amount and VAT rate.</span>";
+    return;
+  }
+
+  let net, gross, vat;
+
+  if (mode === "add") {
+    net = a;
+    vat = a * r;
+    gross = a + vat;
+  } else {
+    gross = a;
+    net = a / (1 + r);
+    vat = gross - net;
+  }
+
+  result.innerHTML =
+    "<strong>Price without VAT:</strong> €" + net.toFixed(2) +
+    " &nbsp; <strong>VAT:</strong> €" + vat.toFixed(2) +
+    " &nbsp; <strong>Total with VAT:</strong> €" + gross.toFixed(2);
+}
+</script>
+
+<script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/sw.js")
@@ -9,4 +139,5 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-</body></html>
+</body>
+</html>
