@@ -1,4 +1,4 @@
-const CACHE_NAME = "kf-biz-pwa-v5";
+const CACHE_NAME = "kf-biz-pwa-v6";
 
 const APP_SHELL = [
   "/",
